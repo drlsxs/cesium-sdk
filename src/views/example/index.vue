@@ -2,7 +2,7 @@
   @Author: yangshilin
   @Date: 2023-07-09 19:06:39
   @LastEditors: yangshilin
-  @LastEditTime: 2023-07-09 20:31:13
+  @LastEditTime: 2023-07-09 20:34:22
   @FilePath: src\views\example\index.vue
   @Description: desc
  -->
@@ -83,8 +83,6 @@
     </div>
   </div>
 </template>
-
-<script setup></script>
 
 <style scoped lang="scss">
 #example-container {
