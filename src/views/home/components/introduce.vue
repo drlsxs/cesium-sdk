@@ -2,7 +2,7 @@
   @Author: yangshilin
   @Date: 2023-07-09 18:39:18
   @LastEditors: yangshilin
-  @LastEditTime: 2023-07-09 18:40:28
+  @LastEditTime: 2023-07-09 21:35:28
   @FilePath: src\views\home\components\introduce.vue
   @Description: desc
  -->
@@ -24,6 +24,6 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup lang="ts"></script>
 
 <style scoped></style>

@@ -2,7 +2,7 @@
   @Author: yangshilin
   @Date: 2023-07-02 20:32:37
   @LastEditors: yangshilin
-  @LastEditTime: 2023-07-09 19:09:18
+  @LastEditTime: 2023-07-10 23:38:00
   @FilePath: src\layout\index.vue
   @Description: desc
  -->
@@ -14,7 +14,7 @@
         <div class="logo-wrap">
           <div class="input-wrap flex align-center bg-white round-md p-1">
             <SvgIcon name="search" />
-            <input type="text" class="back-none" value="ds" />
+            <input type="text" class="back-none" />
           </div>
         </div>
       </div>

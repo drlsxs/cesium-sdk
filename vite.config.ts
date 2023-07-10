@@ -2,7 +2,7 @@
  * @Author: yangshilin
  * @Date: 2023-07-02 12:47:04
  * @LastEditors: yangshilin
- * @LastEditTime: 2023-07-02 14:22:18
+ * @LastEditTime: 2023-07-09 22:04:55
  * @FilePath: vite.config.ts
  * @Description: 请添加文件描述
  */
@@ -25,6 +25,7 @@ export default defineConfig(({ command }) => {
         enable: command === "serve",
       }),
     ],
+    base: "./",
     resolve: {
       alias: {
         "@": path.resolve("./src"),

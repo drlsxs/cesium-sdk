@@ -2,7 +2,7 @@
   @Author: yangshilin
   @Date: 2023-07-02 15:44:09
   @LastEditors: yangshilin
-  @LastEditTime: 2023-07-02 15:44:28
+  @LastEditTime: 2023-07-09 21:35:04
   @FilePath: src\views\404\index.vue
   @Description: desc
  -->
@@ -12,6 +12,6 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup lang="ts"></script>
 
 <style scoped></style>

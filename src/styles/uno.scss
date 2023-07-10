@@ -1,7 +1,38 @@
 
+.absolute {
+  position: absolute;
+}
+.relative {
+  position: relative;
+}
+.w-full {
+  width: 100%;
+}
+.h-full {
+  height: 100%;
+}
+.top-0 {
+  top: 0;
+}
+
+.left-0 {
+  left: 0;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.zIndex1 {
+  z-index: 5;
+}
 
 .flex {
   display: flex;
+}
+
+.flex1 {
+  flex: 1;
 }
 .flex-wrap {
   flex-wrap: wrap;
@@ -15,6 +46,17 @@
 .gap2 {
   gap: 10px;
 }
+.gap6 {
+  gap: 30px;
+}
+
+.over-hidden {
+  overflow: hidden;
+}
+.round-2 {
+  border-radius: 10px;
+}
+
 .mt-2 {
   margin-top: 10px;
 
@@ -56,7 +98,7 @@
   background: none;
 }
 
-.round-md {
+.round-1 {
   border-radius: 5px;
 }
 
@@ -100,4 +142,25 @@
 
 .text-white {
   color: white;
+}
+
+.pt-2 {
+  padding-top: 10px;
+}
+.ml-6 {
+  margin-left: 30px;
+}
+
+.hide{
+  display: none;
+}
+
+.px-1 {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.px-2 {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }

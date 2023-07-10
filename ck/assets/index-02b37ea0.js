@@ -1,0 +1,1 @@
+import{_ as e,o,e as t,m as c}from"./index-b9ea74cd.js";const n={},s=c("h1",null,"我是一级路由，展示404页面",-1),_=[s];function r(a,d){return o(),t("div",null,_)}const i=e(n,[["render",r]]);export{i as default};
