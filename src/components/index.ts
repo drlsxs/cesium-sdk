@@ -2,15 +2,18 @@
  * @Author: yangshilin
  * @Date: 2023-07-02 13:51:42
  * @LastEditors: yangshilin
- * @LastEditTime: 2023-07-09 21:55:12
+ * @LastEditTime: 2023-07-29 19:30:00
  * @FilePath: src\components\index.ts
  * @Description: 请添加文件描述
  */
 //引入组件
-import SvgIcon from "./SvgIcon/index.vue";
+import svgIcon from "./svgIcon/svgIcon.vue";
+// 示例组件
+import initEarth from "./demo/initEarth/initEarth.vue";
 //全局对象
 const allGlobalComponent: { [index: string]: any } = {
-  SvgIcon,
+  svgIcon,
+  initEarth,
 };
 
 export default {
