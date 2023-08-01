@@ -38,6 +38,7 @@ const onExample = (example: Example) => {
     path: "/editView",
     query: {
       viewId: example.mark,
+      component: example.component,
     },
   });
 };

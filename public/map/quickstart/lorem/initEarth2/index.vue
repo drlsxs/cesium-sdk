@@ -16,7 +16,9 @@ onMounted(() => {
 </script>
 
 <template>
-  <div id="cesiumContainer"></div>
+  <div id="cesiumContainer">
+    initEarth2
+  </div>
 </template>
 
 <style scoped lang="scss">

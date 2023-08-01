@@ -6,11 +6,17 @@
   @FilePath: src\views\editVIew\components\preview\preview.vue
   @Description: desc
  -->
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useRoute } from "vue-router";
+
+let router = useRoute();
+
+let component = router.query.component as string;
+</script>
 
 <template>
   <div class="preview">
-    <component is="initEarth"></component>
+    <component :is="component"></component>
   </div>
 </template>
 

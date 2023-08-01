@@ -23,6 +23,7 @@ export interface Example {
   mark: string;
   name: string;
   thumbnail: string;
+  component: string;
 }
 
 export interface ExampleResponse {

@@ -24,11 +24,13 @@ function exampleTree() {
               mark: "quickstart/lorem/initEarth",
               name: "Lorem ipsum dolor sit amet",
               thumbnail: "",
+              component: "initEarth",
             },
             {
               mark: "quickstart/lorem/initEarth2",
               name: "Lorem dolor sit amet",
               thumbnail: "",
+              component: "initEarth2",
             },
           ],
         },

@@ -10,10 +10,12 @@
 import svgIcon from "./svgIcon/svgIcon.vue";
 // 示例组件
 import initEarth from "@p/map/quickstart/lorem/initEarth/index.vue";
+import initEarth2 from "@p/map/quickstart/lorem/initEarth2/index.vue";
 //全局对象
 const allGlobalComponent: { [index: string]: any } = {
   svgIcon,
   initEarth,
+  initEarth2,
 };
 
 export default {
