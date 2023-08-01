@@ -8,7 +8,7 @@
  -->
 <template>
   <div class="menu-item p-1">
-    <div class="menu-sub-title px-1">{{ child.label }}</div>
+    <div class="menu-sub-title py-1">{{ child.label }}</div>
     <div class="item-cont mb-2 grid gap6">
       <slot></slot>
     </div>

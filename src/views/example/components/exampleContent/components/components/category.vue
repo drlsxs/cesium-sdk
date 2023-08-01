@@ -7,7 +7,7 @@
   @Description: desc
  -->
 <template>
-  <div class="menu-title px-2">
+  <div class="menu-title py-2">
     <h2>{{ title }}</h2>
   </div>
 </template>

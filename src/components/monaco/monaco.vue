@@ -2,7 +2,7 @@
   @Author: yangshilin
   @Date: 2023-07-29 18:17:08
   @LastEditors: yangshilin
-  @LastEditTime: 2023-07-29 20:12:50
+  @LastEditTime: 2023-07-29 22:19:30
   @FilePath: src\components\monaco\monaco.vue
   @Description: desc
  -->
@@ -16,7 +16,14 @@ import * as monaco from "monaco-editor";
 import { nextTick, ref, onBeforeUnmount } from "vue";
 import { useRoute } from "vue-router";
 
-const text = ref("");
+//props
+const props = defineProps({
+  code: String,
+});
+
+//操作组件
+import editOpt from "./editOpt.vue";
+
 const route = useRoute();
 const language = ref("go");
 const msg = ref();
@@ -62,8 +69,8 @@ const editorInit = () => {
       ? (editor = monaco.editor.create(
           document.getElementById("codeEditBox") as HTMLElement,
           {
-            value: text.value, // 编辑器初始显示文字
-            language: "js", // 语言支持自行查阅demo
+            value: props.code, // 编辑器初始显示文字
+            language: "vue", // 语言支持自行查阅demo
             automaticLayout: true, // 自适应布局
             theme: "vs-dark", // 官方自带三种主题vs, hc-black, or vs-dark
             foldingStrategy: "indentation",
@@ -87,9 +94,14 @@ const editorInit = () => {
   });
 };
 editorInit();
+
+const getCode = () => {
+  console.log(editor.getValue());
+};
 </script>
 
 <template>
+  <editOpt @print="getCode"></editOpt>
   <div id="codeEditBox"></div>
 </template>
 

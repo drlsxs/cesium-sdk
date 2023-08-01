@@ -17,7 +17,7 @@
     </div>
     <div class="visual m-auto p-2">
       <div class="menu">
-        <div class="menu-title px-2">
+        <div class="menu-title py-2">
           <h2>快速开始</h2>
         </div>
         <MenuItem>
