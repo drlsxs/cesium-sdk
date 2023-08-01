@@ -7,7 +7,12 @@
   @Description: desc
  -->
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const emit = defineEmits(["runCode"]);
+const handleRunCode = () => {
+  emit("runCode");
+};
+</script>
 
 <template>
   <div class="editopt-comp flex align-center justify-between">
@@ -17,7 +22,10 @@
     </div>
     <div class="center-wrap text-white">初始化地球</div>
     <div class="right-wrap space-x-4 flex align-center mr-4">
-      <div class="icon-box p-1 cursor-pointer hover:bg-white-300 round-1">
+      <div
+        class="icon-box p-1 cursor-pointer hover:bg-white-300 round-1"
+        @click="handleRunCode"
+      >
         <svg-icon name="load" color="green"></svg-icon>
       </div>
       <div class="icon-box p-1 cursor-pointer hover:bg-white-300 round-1">

@@ -7,12 +7,11 @@
   @Description: 初始化地球
  -->
 <script setup lang="ts">
-import * as Cesium from "cesium";
-import { onMounted } from "vue";
 
-let viewer = null;
+import {onMounted} from "vue";
+
 onMounted(() => {
-  viewer = new Cesium.Viewer("cesiumContainer");
+  console.log(1111);
 });
 </script>
 

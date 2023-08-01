@@ -18,7 +18,7 @@
         src="@/assets/images/map-create-options.jpg"
         alt=""
         class="w-full h-full cursor-pointer"
-        @click="onExample"
+        @click="onExample(example)"
       />
     </div>
   </div>
@@ -33,9 +33,12 @@ interface Props {
   example: Example;
 }
 
-const onExample = () => {
+const onExample = (example: Example) => {
   router.push({
     path: "/editView",
+    query: {
+      viewId: example.mark,
+    },
   });
 };
 

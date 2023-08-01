@@ -19,10 +19,12 @@
   "dependencies": {
     "@element-plus/icons-vue": "^2.1.0",
     "axios": "^1.4.0",
+    "cesium": "^1.107.2",
     "element-plus": "^2.3.7",
     "husky": "^8.0.3",
     "monaco-editor": "^0.40.0",
     "pinia": "^2.1.4",
+    "vite-plugin-cesium": "^1.2.22",
     "vue": "^3.2.47",
     "vue-router": "^4.2.2"
   },

@@ -21,12 +21,12 @@ function exampleTree() {
           nums: 88,
           children: [
             {
-              mark: "create-earth",
+              mark: "quickstart/lorem/initEarth",
               name: "Lorem ipsum dolor sit amet",
               thumbnail: "",
             },
             {
-              mark: "create-earthdd",
+              mark: "quickstart/lorem/initEarth2",
               name: "Lorem dolor sit amet",
               thumbnail: "",
             },

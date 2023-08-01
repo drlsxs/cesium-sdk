@@ -9,7 +9,7 @@
 //引入组件
 import svgIcon from "./svgIcon/svgIcon.vue";
 // 示例组件
-import initEarth from "./demo/initEarth/initEarth.vue";
+import initEarth from "@p/map/quickstart/lorem/initEarth/index.vue";
 //全局对象
 const allGlobalComponent: { [index: string]: any } = {
   svgIcon,

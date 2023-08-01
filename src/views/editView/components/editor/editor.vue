@@ -8,22 +8,11 @@
  -->
 <script setup lang="ts">
 import monaco from "@/components/monaco/monaco.vue";
-import axios from "axios";
-import { ref } from "vue";
-
-let code = ref("");
-
-const fetchSourceCode = () => {
-  axios.get("map/quickstart/lorem/initEarth/index.vue").then((r) => {
-    code.value = r.data;
-  });
-};
-fetchSourceCode();
 </script>
 
 <template>
   <div class="editor">
-    <monaco :code="code" v-if="code"></monaco>
+    <monaco></monaco>
   </div>
 </template>
 

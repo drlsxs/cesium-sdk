@@ -7,33 +7,37 @@
   @Description: desc
  -->
 <script lang="ts" setup>
+//资源引入
 import jsonWorker from "monaco-editor/esm/vs/language/json/json.worker?worker";
 import cssWorker from "monaco-editor/esm/vs/language/css/css.worker?worker";
 import htmlWorker from "monaco-editor/esm/vs/language/html/html.worker?worker";
 import tsWorker from "monaco-editor/esm/vs/language/typescript/ts.worker?worker";
 import EditorWorker from "monaco-editor/esm/vs/editor/editor.worker?worker";
 import * as monaco from "monaco-editor";
-import { nextTick, ref, onBeforeUnmount } from "vue";
+import { nextTick, onBeforeUnmount, ref } from "vue";
+import axios from "axios";
 import { useRoute } from "vue-router";
-
-//props
-const props = defineProps({
-  code: String,
-});
-
 //操作组件
 import editOpt from "./editOpt.vue";
 
-const route = useRoute();
-const language = ref("go");
-const msg = ref();
-const loading = ref(false);
-//
-// MonacoEditor start
-//
+//props
+const props = defineProps({});
+
+//组件数据
+let code = ref("");
+const rouetr = useRoute();
+
+/**
+ * 获取viewId
+ */
+const getViewId = () => {
+  return rouetr.query.viewId;
+};
+
 onBeforeUnmount(() => {
   editor.dispose();
 });
+
 // @ts-expect-error
 self.MonacoEnvironment = {
   getWorker(_: string, label: string) {
@@ -54,8 +58,15 @@ self.MonacoEnvironment = {
 };
 let editor: monaco.editor.IStandaloneCodeEditor;
 
+const fetchSourceCode = async () => {
+  let viewId = getViewId();
+  const r = await axios.get(`map/${viewId}/index.vue`);
+  code.value = r.data;
+};
+
 const editorInit = () => {
-  nextTick(() => {
+  nextTick(async () => {
+    await fetchSourceCode();
     monaco.languages.typescript.javascriptDefaults.setDiagnosticsOptions({
       noSemanticValidation: true,
       noSyntaxValidation: false,
@@ -64,12 +75,11 @@ const editorInit = () => {
       target: monaco.languages.typescript.ScriptTarget.ES2016,
       allowNonTsExtensions: true,
     });
-
     !editor
       ? (editor = monaco.editor.create(
           document.getElementById("codeEditBox") as HTMLElement,
           {
-            value: props.code, // 编辑器初始显示文字
+            value: code.value, // 编辑器初始显示文字
             language: "html", // 语言支持自行查阅demo
             automaticLayout: true, // 自适应布局
             theme: "vs-dark", // 官方自带三种主题vs, hc-black, or vs-dark
@@ -94,19 +104,19 @@ const editorInit = () => {
     }, 2000);
     // 监听值的变化
     editor.onDidChangeModelContent((val: any) => {
-      text.value = editor.getValue();
+      code.value = editor.getValue();
     });
   });
 };
 editorInit();
 
-const getCode = () => {
+const runCode = () => {
   console.log(editor.getValue());
 };
 </script>
 
 <template>
-  <editOpt @print="getCode"></editOpt>
+  <editOpt @runCode="runCode"></editOpt>
   <div id="codeEditBox"></div>
 </template>
 
