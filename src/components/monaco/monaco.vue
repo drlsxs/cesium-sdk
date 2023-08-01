@@ -70,14 +70,14 @@ const editorInit = () => {
           document.getElementById("codeEditBox") as HTMLElement,
           {
             value: props.code, // 编辑器初始显示文字
-            language: "vue", // 语言支持自行查阅demo
+            language: "html", // 语言支持自行查阅demo
             automaticLayout: true, // 自适应布局
             theme: "vs-dark", // 官方自带三种主题vs, hc-black, or vs-dark
             foldingStrategy: "indentation",
             renderLineHighlight: "all", // 行亮
             selectOnLineNumbers: true, // 显示行号
             minimap: {
-              enabled: false,
+              enabled: true,
             },
             readOnly: false, // 只读
             fontSize: 16, // 字体大小
@@ -87,6 +87,11 @@ const editorInit = () => {
         ))
       : editor.setValue("");
     // console.log(editor)
+    setTimeout(function () {
+      editor.updateOptions({
+        lineNumbers: "on",
+      });
+    }, 2000);
     // 监听值的变化
     editor.onDidChangeModelContent((val: any) => {
       text.value = editor.getValue();
