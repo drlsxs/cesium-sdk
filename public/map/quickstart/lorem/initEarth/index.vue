@@ -9,7 +9,6 @@
 <script setup lang="ts">
 import * as Cesium from "cesium";
 import { onMounted } from "vue";
-
 let viewer = null;
 onMounted(() => {
   viewer = new Cesium.Viewer("cesiumContainer");

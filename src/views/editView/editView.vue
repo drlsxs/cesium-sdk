@@ -9,12 +9,15 @@
 <script setup lang="ts">
 import editor from "./components/editor/editor.vue";
 import preview from "./components/preview/preview.vue";
+import { useRoute } from "vue-router";
+let router = useRoute();
+document.title = router.query.name as string;
 </script>
 
 <template>
   <div class="editView flex">
-    <editor class="flex4"></editor>
-    <preview class="flex6"></preview>
+    <editor class="percent40"></editor>
+    <preview class="percent60"></preview>
   </div>
 </template>
 
