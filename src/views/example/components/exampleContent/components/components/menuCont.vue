@@ -15,7 +15,7 @@
     </div>
     <div class="menu-item__img absolute w-full h-full top-0 left-0">
       <img
-        src="@/assets/images/map-create-options.jpg"
+        :src="getImageUrl(example.thumbnail)"
         alt=""
         class="w-full h-full cursor-pointer"
         @click="onExample(example)"
@@ -31,6 +31,11 @@ import { useRouter } from "vue-router";
 const router = useRouter();
 interface Props {
   example: Example;
+}
+
+function getImageUrl(name) {
+  return new URL(`../../../../../../assets/images/${name}`, import.meta.url)
+    .href;
 }
 
 const onExample = (example: Example) => {
