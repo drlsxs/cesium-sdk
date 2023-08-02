@@ -31,6 +31,7 @@ app.use(globalComponent);
 app.use(ElementPlus, {
   locale: zhCn,
 });
+
 //注册模板路由
 app.use(router);
 //安装pinia

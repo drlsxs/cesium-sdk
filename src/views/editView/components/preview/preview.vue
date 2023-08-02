@@ -7,17 +7,21 @@
   @Description: desc
  -->
 <script setup lang="ts">
-import { useRoute } from "vue-router";
+import fetchComponentFromString from "@/utils/fetchComponent.ts";
+import { shallowRef } from "vue";
+import emitter from "@/utils/bus.ts";
+let component = shallowRef(null);
+emitter.on("code", () => {
+  component.value = fetchComponentFromString("../editView.vue");
+});
 
-let router = useRoute();
-
-let component = router.query.component as string;
+emitter.on("run", () => {
+  component.value = fetchComponentFromString("../editView.vue");
+});
 </script>
 
 <template>
-  <div class="preview">
-    <component :is="component"></component>
-  </div>
+  <component :is="component"></component>
 </template>
 
 <style scoped></style>

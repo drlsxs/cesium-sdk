@@ -22,6 +22,7 @@
     "cesium": "^1.107.2",
     "element-plus": "^2.3.7",
     "husky": "^8.0.3",
+    "mitt": "^3.0.1",
     "monaco-editor": "^0.40.0",
     "pinia": "^2.1.4",
     "vite-plugin-cesium": "^1.2.22",

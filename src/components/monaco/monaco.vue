@@ -17,8 +17,10 @@ import * as monaco from "monaco-editor";
 import { nextTick, onBeforeUnmount, ref } from "vue";
 import axios from "axios";
 import { useRoute } from "vue-router";
+import emitter from "@/utils/bus.ts";
 //操作组件
 import editOpt from "./editOpt.vue";
+import { fetchSourceCode } from "@/utils/fetchCode.ts";
 
 //props
 const props = defineProps({});
@@ -26,7 +28,6 @@ const props = defineProps({});
 //组件数据
 let code = ref("");
 const rouetr = useRoute();
-
 /**
  * 获取viewId
  */
@@ -58,15 +59,10 @@ self.MonacoEnvironment = {
 };
 let editor: monaco.editor.IStandaloneCodeEditor;
 
-const fetchSourceCode = async () => {
-  let viewId = getViewId();
-  const r = await axios.get(`map/${viewId}/index.vue`);
-  code.value = r.data;
-};
-
 const editorInit = () => {
   nextTick(async () => {
-    await fetchSourceCode();
+    await fetchSourceCode(getViewId());
+    emitter.emit("code");
     monaco.languages.typescript.javascriptDefaults.setDiagnosticsOptions({
       noSemanticValidation: true,
       noSyntaxValidation: false,
@@ -79,7 +75,7 @@ const editorInit = () => {
       ? (editor = monaco.editor.create(
           document.getElementById("codeEditBox") as HTMLElement,
           {
-            value: code.value, // 编辑器初始显示文字
+            value: window.sfcInfo.sfcContent, // 编辑器初始显示文字
             language: "html", // 语言支持自行查阅demo
             automaticLayout: true, // 自适应布局
             theme: "vs-dark", // 官方自带三种主题vs, hc-black, or vs-dark
@@ -108,10 +104,13 @@ const editorInit = () => {
     });
   });
 };
+
 editorInit();
 
 const runCode = () => {
-  console.log(editor.getValue());
+  let sfc = editor.getValue();
+  window.sfcInfo.sfcContent = sfc;
+  emitter.emit("run");
 };
 </script>
 
