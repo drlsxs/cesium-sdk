@@ -39,6 +39,7 @@ const onExample = (example: Example) => {
     query: {
       viewId: example.mark,
       component: example.component,
+      name: example.name,
     },
   });
 };

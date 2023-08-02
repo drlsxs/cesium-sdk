@@ -22,14 +22,14 @@ function exampleTree() {
           children: [
             {
               mark: "quickstart/lorem/initEarth",
-              name: "Lorem ipsum dolor sit amet",
-              thumbnail: "",
+              name: "初始化地球",
+              thumbnail: "map-create-options.jpg",
               component: "initEarth",
             },
             {
               mark: "quickstart/lorem/initEarth2",
-              name: "Lorem dolor sit amet",
-              thumbnail: "",
+              name: "根据配置文件创建地球",
+              thumbnail: "map-create-json.jpg",
               component: "initEarth2",
             },
           ],
