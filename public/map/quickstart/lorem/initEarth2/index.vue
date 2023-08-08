@@ -21,8 +21,3 @@ onMounted(() => {
   </div>
 </template>
 
-<style scoped lang="scss">
-#cesiumContainer {
-  height: calc(100vh - $header-height);
-}
-</style>

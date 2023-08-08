@@ -10,6 +10,7 @@
 export interface MenuConfig {
   label: string;
   nums: number;
+  icon: string;
   children?: MenuChildConfig[];
 }
 

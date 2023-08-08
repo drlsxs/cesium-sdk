@@ -14,9 +14,8 @@ let component = shallowRef(null);
 emitter.on("code", () => {
   component.value = fetchComponentFromString("../editView.vue");
 });
-
 emitter.on("run", () => {
-  component.value = fetchComponentFromString("../editView.vue");
+  component.value = fetchComponentFromString("../editor.vue");
 });
 </script>
 

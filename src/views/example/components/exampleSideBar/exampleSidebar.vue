@@ -9,8 +9,14 @@
 <template>
   <div class="sidebar p-2">
     <div class="sidebar-inner w-full h-full">
-      <sideBarYiItem v-for="meun in MenuData" :key="meun.label" :menu="meun">
-        <sideBarErItem :child="meun.children" />
+      <sideBarYiItem
+        v-for="(meun, index) in MenuData"
+        :key="meun.label + index"
+        :menu="meun"
+        @click="handleMenu(meun, index)"
+        :menuAc="currentIndex === index"
+      >
+        <sideBarErItem :child="meun.children" v-if="currentIndex === index" />
       </sideBarYiItem>
     </div>
   </div>
@@ -19,11 +25,20 @@
 import sideBarYiItem from "./components/sideBarYiItem.vue";
 import sideBarErItem from "./components/sideBarErItem.vue";
 import { MenuConfig } from "@/api/example/types.ts";
+import { ref } from "vue";
 interface Props {
   MenuData: MenuConfig[];
 }
 
+let currentMenu: MenuConfig;
+let currentIndex = ref(-1);
+
 const props = withDefaults(defineProps<Props>(), {});
+
+const handleMenu = (menu: MenuConfig, index: number) => {
+  currentMenu = menu;
+  currentIndex.value = index;
+};
 </script>
 
 <style lang="scss" scoped>

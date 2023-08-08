@@ -9,7 +9,12 @@
 <template>
   <div class="menu">
     <category :title="menu.label" />
-    <menuItem v-for="child in menu.children" :child="child" :key="child.label">
+    <menuItem
+      v-for="child in menu.children"
+      :child="child"
+      :key="child.label"
+      ref="menuItems"
+    >
       <menuCont
         v-for="example in child.children"
         :example="example"
@@ -23,10 +28,17 @@ import category from "./components/category.vue";
 import menuItem from "./components/menuItem.vue";
 import menuCont from "./components/menuCont.vue";
 import { MenuConfig } from "@/api/example/types.ts";
+import { onMounted, ref } from "vue";
+
+let menuItems = ref([]);
 
 interface Props {
   menu: MenuConfig;
 }
+
+onMounted(() => {
+  console.log(menuItems.value[0].a, 12);
+});
 
 const props = withDefaults(defineProps<Props>(), {});
 </script>

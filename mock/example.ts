@@ -15,6 +15,7 @@ function exampleTree() {
     {
       label: "快速开始",
       nums: 10,
+      icon: "quick-start",
       children: [
         {
           label: "Lorem kkk",
@@ -43,6 +44,7 @@ function exampleTree() {
     {
       label: "广泛广泛",
       nums: 11,
+      icon: "quick-start",
       children: [
         {
           label: "Lorem 00000",

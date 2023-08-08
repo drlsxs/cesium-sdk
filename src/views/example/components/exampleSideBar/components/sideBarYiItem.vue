@@ -9,14 +9,15 @@
 <template>
   <div class="sidebar-1">
     <div
-      class="side1-item round-1 mb-1 cursor-pointer active flex align-center p-2"
+      class="side1-item round-1 mb-1 cursor-pointer flex align-center p-2"
+      :class="{ active: menuAc }"
     >
       <i>
-        <svgIcon name="weixin" />
+        <svgIcon :name="menu.icon" />
       </i>
       <p class="flex1 p-1">{{ menu.label }} ({{ menu.nums }})</p>
-      <i>
-        <svgIcon name="weixin" />
+      <i class="arrow">
+        <svgIcon name="right-arrow" />
       </i>
     </div>
     <slot></slot>
@@ -24,11 +25,21 @@
 </template>
 
 <script setup lang="ts">
-import { MenuConfig } from "@/views/example/types";
+import { MenuConfig } from "@/api/example/types.ts";
 
 const props = defineProps<{
   menu: MenuConfig;
+  menuAc: boolean;
 }>();
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+.side1-item.active {
+  .arrow {
+    svg {
+      transform: rotate(90deg);
+      transition: all 0.4s ease;
+    }
+  }
+}
+</style>
